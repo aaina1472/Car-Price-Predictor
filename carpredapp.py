@@ -3,8 +3,6 @@ import pickle
 import pandas as pd
 import os
 
-# Debugging: List files in directory
-st.write("Available files:", os.listdir())
 
 with open("LinearRegressionModel.pkl", "rb") as f:
     model = pickle.load(f)
