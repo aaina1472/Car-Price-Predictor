@@ -4,10 +4,6 @@ import pandas as pd
 import os
 
 
-with open("LinearRegressionModel.pkl", "rb") as f:
-    model = pickle.load(f)
-
-
 # Load model (check if file exists first)
 model_path = "LinearRegressionModel.pkl"
 if not os.path.exists(model_path):
