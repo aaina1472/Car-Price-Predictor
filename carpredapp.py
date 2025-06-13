@@ -6,6 +6,10 @@ import os
 # Debugging: List files in directory
 st.write("Available files:", os.listdir())
 
+with open("LinearRegressionModel.pkl", "rb") as f:
+    model = pickle.load(f)
+
+
 # Load model (check if file exists first)
 model_path = "LinearRegressionModel.pkl"
 if not os.path.exists(model_path):
