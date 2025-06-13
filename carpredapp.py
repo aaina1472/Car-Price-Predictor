@@ -11,7 +11,7 @@ model_path = "LinearRegressionModel.pkl"
 if not os.path.exists(model_path):
     st.error(f"Model file not found: {model_path}")
 else:
-    model = pickle.load(open(model_path, 'rb'))
+    model = pickle.load(open(model_path, 'wb'))
 
     st.title("🚗 Car Price Predictor")
     st.write("Enter the car details to estimate its market value.")
