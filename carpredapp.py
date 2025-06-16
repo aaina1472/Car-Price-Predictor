@@ -18,7 +18,8 @@ model_path = "LinearRegressionModel.pkl"
 if not os.path.exists(model_path):
     st.error(f"Model file not found: {model_path}")
 else:
-    model = pickle.load(open(model_path, 'rb'))
+    with open(model_path, 'rb') as f:
+    model = pickle.load(f)
 
     st.title("🚗 Car Price Predictor")
     st.write("Enter the car details to estimate its market value.")
@@ -34,9 +35,18 @@ else:
     fuel_type = st.selectbox("Fuel Type", ["Petrol", "Diesel", "LPG"])
 
     if st.button("Predict Price"):
-        input_df = pd.DataFrame([[selected_name, company, year, kms_driven, fuel_type]],
-                                columns=['name', 'company', 'year', 'kms_driven', 'fuel_type'])
+        # Apply same 3-word preprocessing to input (in case it's changed manually or reused elsewhere)
+        processed_name = ' '.join(selected_name.split(' ')[:3])
+
+        input_df = pd.DataFrame([[processed_name, company, year, kms_driven, fuel_type]],
+                        columns=['name', 'company', 'year', 'kms_driven', 'fuel_type'])
+
+        try:
         prediction = model.predict(input_df)[0]
         st.success(f"💰 Estimated Price: ₹ {int(prediction):,}")
+        except ValueError as e:
+        st.error(f"⚠️ Error: {str(e)}")
+
+
 
 
