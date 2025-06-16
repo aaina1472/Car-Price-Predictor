@@ -41,11 +41,11 @@ else:
         input_df = pd.DataFrame([[processed_name, company, year, kms_driven, fuel_type]],
                         columns=['name', 'company', 'year', 'kms_driven', 'fuel_type'])
 
-        try:
-        prediction = model.predict(input_df)[0]
-        st.success(f"💰 Estimated Price: ₹ {int(prediction):,}")
-        except ValueError as e:
-        st.error(f"⚠️ Error: {str(e)}")
+            try:
+            prediction = model.predict(input_df)[0]
+            st.success(f"💰 Estimated Price: ₹ {int(prediction):,}")
+             except ValueError as e:
+            st.error(f"⚠️ Error: {str(e)}")
 
 
 
