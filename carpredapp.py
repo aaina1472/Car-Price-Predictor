@@ -19,7 +19,7 @@ else:
     company = st.selectbox("Company", ["Maruti", "Hyundai", "Honda", "Toyota", "Mahindra", "Tata", "Kia", "Ford", "Renault", "Skoda"])
     year = st.number_input("Purchase Year", min_value=1990, max_value=2025, step=1, value=2020)
     kms_driven = st.number_input("Kilometers Driven", min_value=0, max_value=500000, step=500, value=10000)
-    fuel_type = st.selectbox("Fuel Type", ["Petrol", "Diesel", "CNG", "LPG", "Electric"])
+    fuel_type = st.selectbox("Fuel Type", ["Petrol", "Diesel", "LPG"])
 
     if st.button("Predict Price"):
         input_df = pd.DataFrame([[name, company, year, kms_driven, fuel_type]],
