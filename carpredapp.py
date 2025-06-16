@@ -46,6 +46,7 @@ else:
             st.success(f"💰 Estimated Price: ₹ {int(prediction):,}")
         except ValueError as e:
             st.error(f"⚠️ Error: {str(e)}")
+            st.info("Try selecting a different car model.")
 
 
 
