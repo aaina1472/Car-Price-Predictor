@@ -14,7 +14,7 @@ car_names = sorted(car['name'].unique())
 
 
 # Load model (check if file exists first)
-model_path = "LinearRegressionModel.pkl"
+model_path = "XGBRegressorModel.pkl"
 if not os.path.exists(model_path):
     st.error(f"Model file not found: {model_path}")
 else:
