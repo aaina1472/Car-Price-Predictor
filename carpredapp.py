@@ -19,7 +19,7 @@ if not os.path.exists(model_path):
     st.error(f"Model file not found: {model_path}")
 else:
     with open(model_path, 'rb') as f:
-    model = pickle.load(f)
+        model = pickle.load(f)
 
     st.title("🚗 Car Price Predictor")
     st.write("Enter the car details to estimate its market value.")
