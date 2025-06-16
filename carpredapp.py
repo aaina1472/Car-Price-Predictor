@@ -2,7 +2,7 @@ import streamlit as st
 import pickle
 import pandas as pd
 import os
-from xgboost import XGBRegressor
+import xgboost
 
 # Load the cleaned dataset
 car = pd.read_csv('Cleaned_Car_data.csv')
