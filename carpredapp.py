@@ -34,7 +34,7 @@ else:
     fuel_type = st.selectbox("Fuel Type", ["Petrol", "Diesel", "LPG"])
 
     if st.button("Predict Price"):
-        input_df = pd.DataFrame([[name, company, year, kms_driven, fuel_type]],
+        input_df = pd.DataFrame([[selected_name, company, year, kms_driven, fuel_type]],
                                 columns=['name', 'company', 'year', 'kms_driven', 'fuel_type'])
         prediction = model.predict(input_df)[0]
         st.success(f"💰 Estimated Price: ₹ {int(prediction):,}")
